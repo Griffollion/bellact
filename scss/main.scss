@@ -16,6 +16,11 @@ html,body {
     position: relative;
     overflow: hidden;
     border: 1px solid #000;
+    opacity: 0;
+}
+
+.bellact.visible {
+    opacity: 1;
 }
 
 .bellact__background {

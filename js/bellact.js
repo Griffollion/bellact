@@ -10,12 +10,12 @@ $(document).ready(function() {
     screen3 = ".bellact__screen-3",
     screen4 = ".bellact__screen-4",
     screen5 = ".bellact__screen-5",
-    eraseContainer = ".erase-container";
+    eraseContainer = ".erase-container",
+    mainContainer = '.bellact';
 
   function showFinal() {
     $(eraseContainer).addClass("hide");
     lastScreenEnable = true;
-    console.log("Erase finished");
   }
 
   function showCanvas(id) {
@@ -34,18 +34,17 @@ $(document).ready(function() {
     $(screen5).addClass("visible");
   }
 
+  $(mainContainer).addClass('visible');
+
   $(document)
     .on("click", showScreen2, function() {
       screenInit(screen1, screen2, eraseScreen2);
-      console.log("screen 2 showed");
     })
     .on("click", showScreen3, function() {
       screenInit(screen1, screen3, eraseScreen3);
-      console.log("screen 3 showed");
     })
     .on("click", showScreen4, function() {
       screenInit(screen1, screen4, eraseScreen4);
-      console.log("screen 4 showed");
     })
 
     .on("mousedown", "canvas", function() {
@@ -96,9 +95,10 @@ $(document).ready(function() {
       removeCl(".bellact__screen-5-img-3", animationClass2, removeTime);
       removeCl(".bellact__screen-5-img-4", animationClass2, removeTime);
       removeCl(".bellact__screen-5-img-5", animationClass2, removeTime);
+      timerId2 = setTimeout(tick2, 4100);
+    } else {
+      timerId2 = setTimeout(tick2, 50);
     }
-
-    timerId2 = setTimeout(tick2, 4100);
   }, 50);
 
   var timerId3 = setTimeout(function tick3() {
